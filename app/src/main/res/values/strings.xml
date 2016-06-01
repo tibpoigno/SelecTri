@@ -20,4 +20,5 @@
     <string name="mercredi">Mercredi</string>
     <string name="jeudi">Jeudi</string>
     <string name="vendredi">Vendredi</string>
+    <string name="title_activity_maps2">Map</string>
 </resources>

@@ -74,7 +74,7 @@ public class DataBaseXml
                             Element element = (Element) bacNode;
                             double latitude = Double.parseDouble(getValue("latitude", element));
                             double longitude = Double.parseDouble(getValue("longitude", element));
-                            //Log.d("BAC N°" + i, "  --> Latitude = " + latitude + " et Longitude = " + longitude);
+                            Log.d("BAC N°" + i, "  --> Latitude = " + latitude + " et Longitude = " + longitude);
                             switch (type)
                             {
                                 case "recyclable":
@@ -110,7 +110,7 @@ public class DataBaseXml
     private static String getValue(String tag, Element element)
     {
         NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
-        Node node = (Node) nodeList.item(0);
+        Node node = nodeList.item(0);
         return node.getNodeValue();
     }
     /*
@@ -128,7 +128,7 @@ public class DataBaseXml
             Log.d("Distance: "," "+ dist);
             i++;
         }
-        int min = (int) Collections.min(Arrays.asList(distances));
+        int min = Collections.min(Arrays.asList(distances));
 
         Log.d("Min: "," "+ min);
         return min;

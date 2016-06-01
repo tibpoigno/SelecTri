@@ -2,7 +2,11 @@
 .gradle
 /local.properties
 /.idea/workspace.xml
-/.idea/libraries
 .DS_Store
 /build
 /captures
+.gitignore
+build.gradle
+build2.gradle
+proguard-rules.pro
+src/

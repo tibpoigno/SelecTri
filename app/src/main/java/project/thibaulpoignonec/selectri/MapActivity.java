@@ -6,11 +6,10 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.location.Criteria;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.util.TypedValue;
@@ -22,6 +21,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -34,7 +34,7 @@ import java.util.Vector;
 import Cartographie.Position;
 import DataBase.CompilateurXML;
 import DataBase.DataBaseXml;
-import PointDeCollecte.*;
+import PointDeCollecte.PointDeCollecte;
 
 /*
  * Affiche une carte puis ajoute des bacs dessus (Bitmap) en fonction du type passé au
@@ -50,6 +50,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     private String typeDebac;
     protected DataBaseXml dataBaseXml;
     private boolean isMarked;
+    private BitmapDescriptor myPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,132 +63,77 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         Bundle bundle = getIntent().getExtras();
         typeDebac = bundle.getString("TYPE");
+        myPosition = BitmapDescriptorFactory.fromResource(R.drawable.ma_position);
         isMarked = false;
     }
-/*
-    @Override
-    public void onResume() {
-        super.onResume();
 
-        //Obtention de la référence du service
-        locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
-
-        //Si le GPS est disponible, on s'y abonne
-        if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            abonnementGPS();
-        }
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        //On appelle la méthode pour se désabonner
-        desabonnementGPS();
-    }
-
-    /*
-     * Méthode permettant de s'abonner à la localisation par GPS.
-     */
-    /*
-    public void abonnementGPS() {
-        //On s'abonne
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: !!
-
-            return;
-        }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, this);
-    }*/
-
-    /**
-     * Méthode permettant de se désabonner de la localisation par GPS.
-     */
-    /*
-    public void desabonnementGPS() {
-        //Si le GPS est disponible, on s'y abonne
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: !!
-            return;
-        }
-        locationManager.removeUpdates(this);
-    }
-
-    public void onLocationChanged(final Location location) {
-        //On affiche dans un Toat la nouvelle Localisation
-        double latitude = location.getLatitude();
-        double longitude = location.getLongitude();
-        final StringBuilder msg = new StringBuilder("lat : ");
-        msg.append(latitude);
-        msg.append( "; lng : ");
-        msg.append(longitude);
-        Log.d("Position", msg.toString());
-
-        Toast.makeText(this, msg.toString(), Toast.LENGTH_SHORT).show();
-        if(mMap != null) mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude,longitude)));
-
-        if(isMarked == false) {drawMarkers(dataBaseXml.getBacs(typeDebac), typeDebac); isMarked = true;}
-        //android.location.Location maPosition = mMap.getMyLocation();
-
-    }
-
-    public void onProviderDisabled(final String provider) {
-        //Si le GPS est désactivé on se désabonne
-        if("gps".equals(provider)) {
-            desabonnementGPS();
-        }
-    }
-    public void onProviderEnabled(final String provider) {
-        //Si le GPS est activé on s'abonne
-        if("gps".equals(provider)) {
-            abonnementGPS();
-        }
-    }
-
-    public void onStatusChanged(final String provider, final int status, final Bundle extras) { }
-
-    private void setUpMap() {
-
-
-
-
-    }*/
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.getUiSettings().setZoomGesturesEnabled(true);
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED)
-        {
+                == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
-        }
-        else
-        {
+        } else {
             // TODO : faire un toast...
         }
 
         showMap(typeDebac);
+        Log.d("showMap()", "fini !");
 
+        setRadius();
+
+        mMap.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener() {
+            @Override
+            public boolean onMyLocationButtonClick() {
+
+                setRadius();
+                return true;
+            }
+        });
+
+
+    }
+
+    public void setRadius() {
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-        Criteria criteria = new Criteria();
-        String provider = locationManager.getBestProvider(criteria, true);
+        Location myLocation = null;
+        if (locationManager != null) {
+            Criteria criteria = new Criteria();
+            String provider = locationManager.getBestProvider(criteria, true);
+            // Récuperer la position du telephone
 
-        // Récuperer la position du telephone
-        Location myLocation = locationManager.getLastKnownLocation(provider);
-
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-
-        // latitude de la position actuelle
-        double latitude = myLocation.getLatitude();
-
-        // longitude de la position actuelle
-        double longitude = myLocation.getLongitude();
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+            }
+            else myLocation = locationManager.getLastKnownLocation(provider);
+        }
+        double latitude;
+        double longitude;
+        if(myLocation != null)
+        {
+            // latitude de la position actuelle
+            latitude= myLocation.getLatitude();
+            // longitude de la position actuelle
+            longitude= myLocation.getLongitude();
+            // Create a LatLng object for the current location
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Veuillez activer la localisation et la data",Toast.LENGTH_SHORT).show();
+            latitude = 48.363480;
+            longitude = -4.566542;
+        }
 
         // Create a LatLng object for the current location
         LatLng latLng = new LatLng(latitude, longitude);
 
+        mMap.addMarker(new MarkerOptions()
+                .position(latLng)
+                .title("Vous êtes ici !")
+                .icon(myPosition));
         // Show the current location in Google Map
 
         int radius = dataBaseXml.getRadius(new Position(latitude,longitude),1);
@@ -266,4 +212,5 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         }
         return true;
     }
+
 }

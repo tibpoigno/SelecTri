@@ -1,1 +1,4 @@
 include ':app'
+
+include ':ModuleLib'
+project(':ModuleLib').projectDir = new File(settingsDir, 'libraries/circlelayout')
