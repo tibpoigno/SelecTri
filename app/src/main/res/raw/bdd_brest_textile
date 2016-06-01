@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<dataBase>
+    <brest>
+
+        <textile>
+            <pdt>
+                <latitude>-4.618091</latitude>
+                <longitude>48.380980</longitude>
+            </pdt>
+            <pdt>
+                <latitude>-4.514001</latitude>
+                <longitude>48.380467</longitude>
+            </pdt>
+            <pdt>
+                <latitude>-4.584700</latitude>
+                <longitude>48.362902</longitude>
+            </pdt>
+            <pdt>
+                <latitude>-4.516145</latitude>
+                <longitude>48.396653</longitude>
+            </pdt>
+            <pdt>
+                <latitude>-4.463047</latitude>
+                <longitude>48.454501</longitude>
+            </pdt>
+            <pdt>
+                <latitude>-4.475577</latitude>
+                <longitude>48.415266</longitude>
+            </pdt>
+            <pdt>
+                <latitude>-4.499430</latitude>
+                <longitude>48.411290</longitude>
+            </pdt>
+            <pdt>
+                <latitude>-4.555770</latitude>
+                <longitude>48.425886</longitude>
+            </pdt>
+            <pdt>
+                <latitude>-4.401164</latitude>
+                <longitude>48.397290</longitude>
+            </pdt>
+            <pdt>
+                <latitude>-4.642261</latitude>
+                <longitude>48.366702</longitude>
+            </pdt>
+        </textile>
+
+    </brest>
+</dataBase>

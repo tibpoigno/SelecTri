@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RLayoutOnglet1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+
+    <ImageButton
+        android:id="@+id/bacDmr"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@null"
+
+        android:src="@mipmap/bouton_selection_dmr"
+        android:scaleType="fitCenter"
+        android:layout_below="@+id/bacRecyclable"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_x="131dp"
+        android:layout_y="61dp" />
+
+    <ImageButton
+        android:id="@+id/bacVerre"
+        android:src="@mipmap/bouton_selection_verre"
+
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@null"
+        android:scaleType="fitCenter"
+
+        android:layout_alignBottom="@+id/bacDmr"
+        android:layout_toRightOf="@+id/bacRecyclable"
+        android:layout_toEndOf="@+id/bacRecyclable"
+        android:layout_x="246dp"
+        android:layout_y="135dp" />
+
+    <StackView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/stackView"
+        android:layout_gravity="center_horizontal" />
+
+    <ImageButton
+        android:id="@+id/bacRecyclable"
+        android:src="@mipmap/bouton_selection_recyclable"
+
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@null"
+        android:scaleType="fitCenter"
+
+        android:layout_below="@+id/stackView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:layout_x="16dp"
+        android:layout_y="143dp" />
+
+    <ImageButton
+        android:id="@+id/bacTextile"
+        android:src="@mipmap/bouton_selection_textile"
+
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+
+        android:layout_gravity="top|left"
+        android:layout_marginBottom="72dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_x="15dp"
+        android:layout_y="269dp" />
+
+    <ImageButton
+        android:id="@+id/bacDecheterie"
+        android:src="@mipmap/bouton_selection_decheterie"
+
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+
+        android:layout_gravity="bottom"
+        android:layout_below="@+id/bacDmr"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_x="245dp"
+        android:layout_y="271dp" />
+
+    <ImageButton
+        android:id="@+id/bacPile"
+        android:src="@mipmap/bouton_selection_pile"
+
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="38dp"
+        android:layout_alignBottom="@+id/bacTextile"
+        android:layout_alignRight="@+id/bacDmr"
+        android:layout_alignEnd="@+id/bacDmr"
+        android:layout_x="133dp"
+        android:layout_y="339dp" />
+
+
+
+
+
+</AbsoluteLayout>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<HorizontalScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:background="@color/colorPrimaryDark"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryDark">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:background="@color/colorPrimaryDark">
+
+            <RelativeLayout
+                android:layout_width="380dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Jour collecte déchets ménagers"
+                    android:textSize="26dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+            <RadioGroup
+                style="@style/radioButtonStyle"
+                android:id="@+id/radioGrp1"
+                android:layout_width="160dp"
+                android:layout_height="210dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:foregroundTint="@color/white"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/border">
+
+                <RadioButton
+                    android:id="@+id/rblundi"
+                    android:checked="true"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lundi"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="25dp" />
+
+                <RadioButton
+                    android:id="@+id/rbmardi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="@string/mardi"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:layout_marginLeft="25dp" />
+
+                <RadioButton
+                    android:id="@+id/rbmercredi"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mercredi"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:layout_marginLeft="25dp" />
+
+                <RadioButton
+                    android:id="@+id/rbjeudi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="@string/jeudi"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:layout_marginLeft="25dp" />
+
+                <RadioButton
+                    android:id="@+id/rbvendredi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="@string/vendredi"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:layout_marginLeft="25dp" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/bouton_om"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Valider"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp" />
+
+        </LinearLayout>
+
+
+
+
+
+        <!-- Deuxième partie -->
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="100dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Jour collecte bac jaune"
+                    android:textSize="26dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="40dp" />
+            </RelativeLayout>
+
+
+
+
+            <RadioGroup
+                android:id="@+id/radioGrp2"
+                android:layout_width="160dp"
+                android:layout_height="210dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/border">
+
+                <RadioButton
+                    android:id="@+id/rblundi2"
+                    android:checked="true"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lundi"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="25dp" />
+
+                <RadioButton
+                    android:id="@+id/rbmardi2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="@string/mardi"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:layout_marginLeft="25dp" />
+
+                <RadioButton
+                    android:id="@+id/rbmercredi2"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mercredi"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:layout_marginLeft="25dp" />
+
+                <RadioButton
+                    android:id="@+id/rbjeudi2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="@string/jeudi"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:layout_marginLeft="25dp" />
+
+                <RadioButton
+                    android:id="@+id/rbvendredi2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="@string/vendredi"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:layout_marginLeft="25dp" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/bouton_jaune"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Valider"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</HorizontalScrollView>

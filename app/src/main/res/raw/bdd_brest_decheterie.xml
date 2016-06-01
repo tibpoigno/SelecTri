@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<dataBase>
+    <brest>
+
+        <decheterie>
+            <pdt>
+                <latitude>-4.700174</latitude>
+                <longitude>48.362693</longitude>
+            </pdt>
+	    <pdt>
+                <latitude>-4.621210</latitude>
+                <longitude>48.381395</longitude>
+            </pdt>
+	    <pdt>
+                <latitude>-4.607477</latitude>
+                <longitude>48.377746</longitude>
+            </pdt>
+	    <pdt>
+                <latitude>-4.501734</latitude>
+                <longitude>48.417410</longitude>
+            </pdt>
+	    <pdt>
+                <latitude>-4.389124</latitude>
+                <longitude>48.421967</longitude>
+            </pdt>
+	    <pdt>
+                <latitude>-4.339388</latitude>
+                <longitude>48.372304</longitude>
+            </pdt>
+
+        </decheterie>
+
+    </brest>
+</dataBase>

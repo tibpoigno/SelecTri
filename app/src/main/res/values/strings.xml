@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Selectri</string>
+    <string name="title_activity_map">Map</string>
+
+
+    <string name="tab2">Jours de ramassage</string>
+    <string name="notification_title">SelecTri</string>
+    <string name="notification_desc">Il est temps de sortir la poubelle!</string>
+    <string name="notification">Notification SelecTri</string>
+
+
+    <string name="title_activity_pivot">pivot</string>
+    <string name="action_settings">Settings</string>
+    <string name="jour_om">Lundi</string>
+    <string name="jour_jaune">Mardi</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="lundi">Lundi</string>
+    <string name="mardi">Mardi</string>
+    <string name="mercredi">Mercredi</string>
+    <string name="jeudi">Jeudi</string>
+    <string name="vendredi">Vendredi</string>
+</resources>
